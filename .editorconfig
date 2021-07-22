@@ -1,0 +1,16 @@
+# .editorconfig
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# indent_style: yml 은 기본적으로 indent 를 space로 사용합니다. js, c# 코딩시에 동일하게 적용해도 무방하여 기본 설정으로 적용합니다.
+# indent_size: 중첩된 블럭이 많아 질수록 코드가 옆으로 길어지는 경향이 있기 때문에 짧게 2로 설정합니다.
+# end_of_line: mac 과의 호환성을 고려하여 lf 로 설정합니다.
+# insert_final_newline: 파일 마지막에 일관된 newline 을 설정합니다.
+# trim_trailing_whitespace: 불필요한 공백을 제거합니다.
