@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Home from "./Home";
 import Footer from "./Footer";
 import About from "../components/company/About";
+import History from "../components/company/History";
 import Organization from "../components/company/Organization";
 import Certificate from "../components/company/Certificate";
 import AllServices from "../components/service/AllServices";
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/" exact={true} component={Home} />
 
         <Route path="/company/about" component={About} />
+        <Route path="/company/history" component={History} />
         <Route path="/company/organization" component={Organization} />
         <Route path="/company/certificate" component={Certificate} />
 

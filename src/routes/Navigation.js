@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+const Container = styled.div`
+  width: 100%;
+  border-bottom: ${(props) => props.activePage === "/" ? "none" : "1px solid #d8d8d8" };
+`;
+
 const Inner = styled.div`
   width: 1080px;
   min-width: 1080px;
@@ -49,7 +54,7 @@ const SLink = styled(Link)`
 const Sub = styled.div`
   width: 100%;
   background-color: white;
-  border-top: 1px solid #d8d8d8;
+  // border-top: 1px solid #d8d8d8;
   border-bottom: 1px solid #d8d8d8;
   position: absolute;
   ${props => !props.isShown && css`
@@ -211,23 +216,26 @@ const Navigation = () => {
 
   return(
     <>
-      <Inner activePage={activePage}>
-          <div className="logo">
-            <Link to="/" onClick={clickLogo}>
-              <img src={logoUrl} alt="" onClick={clickLogo} />
-            </Link>
-          </div>
-          <div className="nav en">
-            <SLink to="/company/about" onClick={clickMenu} onMouseEnter={hoverMenu}>banco</SLink>
-            <SLink to="/service" onClick={clickMenu} onMouseEnter={hoverMenu}>services</SLink>
-            <SLink to="/pr/article" onClick={clickMenu} onMouseEnter={hoverMenu}>pr</SLink>
-          </div>
-      </Inner>
+      <Container activePage={activePage}>
+        <Inner activePage={activePage}>
+            <div className="logo">
+              <Link to="/" onClick={clickLogo}>
+                <img src={logoUrl} alt="" onClick={clickLogo} />
+              </Link>
+            </div>
+            <div className="nav en">
+              <SLink to="/company/about" onClick={clickMenu} onMouseEnter={hoverMenu}>banco</SLink>
+              <SLink to="/service" onClick={clickMenu} onMouseEnter={hoverMenu}>services</SLink>
+              <SLink to="/pr/article" onClick={clickMenu} onMouseEnter={hoverMenu}>pr</SLink>
+            </div>
+        </Inner>
+      </Container>
       <Sub isShown={showSub} onMouseLeave={hoverOutSub} activePage={activePage}>
           <ul className="sub-list">
             <li className="/company/about">
               <ul className="sub-list_row">
                 <li><Link to="/company/about" onClick={clickSub}>회사소개</Link></li>
+                <li><Link to="/company/history" onClick={clickSub}>연혁</Link></li>
                 <li><Link to="/company/organization" onClick={clickSub}>조직도</Link></li>
                 <li><Link to="/company/certificate" onClick={clickSub}>특허/인증</Link></li>
               </ul>
