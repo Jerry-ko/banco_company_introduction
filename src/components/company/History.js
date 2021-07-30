@@ -5,7 +5,7 @@ import Footer from "../../routes/Footer";
 const Container = styled.div`
   width: 100%;
   height: calc(100vh - 101px);
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 const Inner = styled.div`

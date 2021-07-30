@@ -10,6 +10,16 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
   `}
+`;
+
+const Inner = styled.div`
+  width: 1080px;
+  min-width: 1080px;
+  margin: 0 auto;
+
+  ${props => props.path === "/" && css`
+    width: 100%;
+  `}
 
   > div {
     display: flex;
@@ -46,21 +56,22 @@ const Container = styled.div`
     color: #999;
     font-weight: 300;
   }
-
 `;
 
 const Footer = ({path}) => {
   return(
     <Container path={path}>
-      <div>
-        <ul>
-          <li><Link to="">제휴제안</Link></li>
-          <li><Link to="">기업윤리</Link></li>
-          <li><Link to="">개인정보 처리방침</Link></li>
-        </ul>
-        <Link to="" className="family-site en">FAMILY SITE</Link>
-      </div>
-      <p className="copyright en">©  BANCO Corp. All rights reserved.</p>
+      <Inner path={path}>
+        <div>
+          <ul>
+            <li><Link to="">제휴제안</Link></li>
+            <li><Link to="">기업윤리</Link></li>
+            <li><Link to="">개인정보 처리방침</Link></li>
+          </ul>
+          <Link to="" className="family-site en">FAMILY SITE</Link>
+        </div>
+        <p className="copyright en">©  BANCO Corp. All rights reserved.</p>
+      </Inner>
     </Container>
   );
 }

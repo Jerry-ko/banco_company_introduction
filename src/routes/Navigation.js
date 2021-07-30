@@ -65,6 +65,7 @@ const Sub = styled.div`
   background-color: white;
   border-bottom: 1px solid #d8d8d8;
   position: absolute;
+  top: 102px;
   z-index: 50;
   ${props => !props.isShown && css`
     display: none;
@@ -226,49 +227,47 @@ const Navigation = () => {
   }
 
   return(
-    <>
-      <Container activePage={activePage}>
-        <Inner activePage={activePage}>
-            <div className="logo">
-              <Link to="/" onClick={clickLogo}>
-                <img src={logoUrl} alt="" onClick={clickLogo} />
-              </Link>
-            </div>
-            <div className="nav en">
-              <SLink to="/company/about" onClick={clickMenu} onMouseEnter={hoverMenu}>banco</SLink>
-              <SLink to="/service" onClick={clickMenu} onMouseEnter={hoverMenu}>services</SLink>
-              <SLink to="/pr/article" onClick={clickMenu} onMouseEnter={hoverMenu}>pr</SLink>
-            </div>
-        </Inner>
-      </Container>
+    <Container activePage={activePage}>
+      <Inner activePage={activePage}>
+          <div className="logo">
+            <Link to="/" onClick={clickLogo}>
+              <img src={logoUrl} alt="" onClick={clickLogo} />
+            </Link>
+          </div>
+          <div className="nav en">
+            <SLink to="/company/about" onClick={clickMenu} onMouseEnter={hoverMenu}>banco</SLink>
+            <SLink to="/service" onClick={clickMenu} onMouseEnter={hoverMenu}>services</SLink>
+            <SLink to="/pr/article" onClick={clickMenu} onMouseEnter={hoverMenu}>pr</SLink>
+          </div>
+      </Inner>
       <Sub isShown={showSub} onMouseLeave={hoverOutSub} activePage={activePage}>
-          <ul className="sub-list">
-            <li className="/company/about">
-              <ul className="sub-list_row">
-                <li><Link to="/company/about" onClick={clickSub}>회사소개</Link></li>
-                <li><Link to="/company/history" onClick={clickSub}>연혁</Link></li>
-                <li><Link to="/company/organization" onClick={clickSub}>조직도</Link></li>
-                <li><Link to="/company/certificate" onClick={clickSub}>특허/인증</Link></li>
-              </ul>
-            </li>
-            <li className="/service">
-              <ul className="sub-list_row">
-                <li><Link to="/service" onClick={clickSub}>전체서비스</Link></li>
-                <li><Link to="/service/borabit" onClick={clickSub}>거래소</Link></li>
-                <li><Link to="/service/game" onClick={clickSub}>게임</Link></li>
-                <li><Link to="/service/edu" onClick={clickSub}>에듀테크</Link></li>
-                <li><Link to="/service/etc" onClick={clickSub}>기타</Link></li>
-              </ul>
-            </li>
-            <li className="/pr/article">
-              <ul className="sub-list_row">
-                <li><Link to="/pr/article" onClick={clickSub}>언론기사</Link></li>
-                <li><Link to="/pr/promotion" onClick={clickSub}>홍보영상</Link></li>
-              </ul>
-            </li>
-          </ul>
+        <ul className="sub-list">
+          <li className="/company/about">
+            <ul className="sub-list_row">
+              <li><Link to="/company/about" onClick={clickSub}>회사소개</Link></li>
+              <li><Link to="/company/history" onClick={clickSub}>연혁</Link></li>
+              <li><Link to="/company/organization" onClick={clickSub}>조직도</Link></li>
+              <li><Link to="/company/certificate" onClick={clickSub}>특허/인증</Link></li>
+            </ul>
+          </li>
+          <li className="/service">
+            <ul className="sub-list_row">
+              <li><Link to="/service" onClick={clickSub}>전체서비스</Link></li>
+              <li><Link to="/service/borabit" onClick={clickSub}>거래소</Link></li>
+              <li><Link to="/service/game" onClick={clickSub}>게임</Link></li>
+              <li><Link to="/service/edu" onClick={clickSub}>에듀테크</Link></li>
+              <li><Link to="/service/etc" onClick={clickSub}>기타</Link></li>
+            </ul>
+          </li>
+          <li className="/pr/article">
+            <ul className="sub-list_row">
+              <li><Link to="/pr/article" onClick={clickSub}>언론기사</Link></li>
+              <li><Link to="/pr/promotion" onClick={clickSub}>홍보영상</Link></li>
+            </ul>
+          </li>
+        </ul>
       </Sub>
-    </>
+    </Container>
   );
 }
 
