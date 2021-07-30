@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import Footer from "./Footer";
 
 const Container = styled.div`
+  position: relative;
+  height: 100vh;
+`;
+
+const Inner = styled.div`
   width: 100%;
-  height: calc(100vh - 204px);
+  min-width: 1900px;
+  height: calc(100vh - 152px);
   background: linear-gradient(115deg, pink, #6d36ee 50%);
   position: relative;
   color: white;
@@ -40,9 +46,14 @@ const Container = styled.div`
 `;
 
 const Notice = styled.div`
+  width: 100%;
+  height: 54px;
+  background-color: white;
+  padding-left: 180px;
+  display: flex;
+  align-items: center;
   position: absolute;
-  left: 180px;
-  bottom: -36px;
+  bottom: 0;
 
   strong {
     margin-right: 25px;
@@ -64,15 +75,18 @@ const Notice = styled.div`
 const Home = () => {
   return(
     <Container>
-      <div className="text_box">
-        <h3 className="title en">Creates Value<br /><span>through technology and convergence</span></h3>
-        <p className="text">기술과 융합으로 새로운 가치를 창조하는 기업</p>
-      </div>
-      <img src="/assets/img/home/graphic.png" alt="" />
-      <Notice>
-        <strong className="en">NOTICE</strong>
-        <Link to="">BANCO 개인정보처리방침 변경에 대한 안내</Link>
-      </Notice>
+      <Inner>
+        <div className="text_box">
+          <h3 className="title en">Creates Value<br /><span>through technology and convergence</span></h3>
+          <p className="text">기술과 융합으로 새로운 가치를 창조하는 기업</p>
+        </div>
+        <img src="/assets/img/home/graphic.png" alt="" />
+        <Notice>
+          <strong className="en">NOTICE</strong>
+          <Link to="">BANCO 개인정보처리방침 변경에 대한 안내</Link>
+        </Notice>
+      </Inner>
+      <Footer path="/" />
     </Container>
   );
 }

@@ -1,13 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
-  min-width: 1900px;
   padding: 39px 180px 50px 180px;
   border-top: 1px solid #d8d8d8;
-  position: absolute;
-  bottom: 0;
+
+  ${props => props.path === "/" && css`
+    position: absolute;
+    bottom: 0;
+  `}
 
   > div {
     display: flex;
@@ -47,9 +49,9 @@ const Container = styled.div`
 
 `;
 
-const Footer = () => {
+const Footer = ({path}) => {
   return(
-    <Container>
+    <Container path={path}>
       <div>
         <ul>
           <li><Link to="">제휴제안</Link></li>

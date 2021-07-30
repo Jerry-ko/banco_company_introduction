@@ -9,15 +9,12 @@ const GlobalStyle = createGlobalStyle`
 
   html, body, #root {
     width: 100%;
-    height: 100vh;
-    min-width: 1900px;
     margin: 0;
-    overflow: hidden;
-
+    position: relative;
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 12px;
     color: #333;
-    // -webkit-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
   }
 
   a {

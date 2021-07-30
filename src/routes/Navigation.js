@@ -4,7 +4,19 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
-  border-bottom: ${(props) => props.activePage === "/" ? "none" : "1px solid #d8d8d8" };
+  border-bottom: 1px solid #d8d8d8;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  ${(props) => props.activePage === "/" && css`
+    border-bottom: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+  `}
+
 `;
 
 const Inner = styled.div`
@@ -25,9 +37,6 @@ const Inner = styled.div`
   ${(props) => props.activePage === "/" && css`
     width: 100%;
     padding: 0 180px;
-    background: transparent;
-    position: absolute;
-    z-index: 100;
 
     .nav a {
       color: white;
@@ -54,9 +63,9 @@ const SLink = styled(Link)`
 const Sub = styled.div`
   width: 100%;
   background-color: white;
-  // border-top: 1px solid #d8d8d8;
   border-bottom: 1px solid #d8d8d8;
   position: absolute;
+  z-index: 50;
   ${props => !props.isShown && css`
     display: none;
   `}
@@ -71,10 +80,12 @@ const Sub = styled.div`
     height: 49px;
     margin: 0 auto;
     position: relative;
+    background-color: white;
 
     li {
+
       &.on ul.sub-list_row {
-        z-index: 100;
+        visibility: visible;
       }
 
       :nth-child(1) ul.sub-list_row {
@@ -91,7 +102,7 @@ const Sub = styled.div`
         height: 49px;
         display: flex;
         position: absolute;
-        z-index: -100;
+        visibility: hidden;
 
         li {
           height: 49px;

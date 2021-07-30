@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Navigation from "./Navigation";
 import Home from "./Home";
-import Footer from "./Footer";
 import About from "../components/company/About";
 import History from "../components/company/History";
 import Organization from "../components/company/Organization";
@@ -38,7 +37,6 @@ const Router = () => {
 
         <Redirect from="*" to="/" />
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Footer from "../../routes/Footer";
 
 const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 152px - 101px);
-  overflow-y: scroll;
+  height: calc(100vh - 101px);
+  overflow: scroll;
 `;
 
 const Inner = styled.div`
-  max-width: 1500px;
-  min-width: 1080px;
+  width: 1080px;
   margin: 0 auto;
 
   h3 {
@@ -25,13 +25,10 @@ const Contents = styled.div`
   display: flex;
   justify-content: space-between;
   color: #3e3a39;
-
-
 `;
 
-
 const Year = styled.div`
-  width: 49%;
+  width: 55%;
 
   div {
     font-size: 139px;
@@ -42,7 +39,7 @@ const Year = styled.div`
 `;
 
 const Result = styled.div`
-  width: 51%;
+  width: 45%;
 
   div {
     margin-bottom: 282px;
@@ -51,7 +48,30 @@ const Result = styled.div`
       font-size: 25px;
       padding-bottom: 35px;
       line-height: 2;
-      // line-height: 3;
+      white-space: nowrap;
+
+      &.isms {
+        font-weight: bold;
+      }
+      &.fsc {
+        color: red;
+      }
+
+    }
+
+    img {
+      &.isms {
+        width: 300px;
+      }
+      &.fsc {
+        width: 200px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1650px) {
+    div p {
+      white-space: normal;
     }
   }
 `;
@@ -60,45 +80,46 @@ const History = () => {
   const [year, setYear] = useState(2020);
 
   const changeYear = (e) => {
+    console.log(e);
     const top = e.target.scrollTop;
     console.log(top);
 
-    if (top < 400) {
+    if (top < 650) {
       setYear(2020);
-    } else if (400 <= top && top < 900) {
+    } else if (650 <= top && top < 1340) {
       setYear(2019);
-    } else if (900 <= top && top < 1610) {
+    } else if (1340 <= top && top < 2010) {
       setYear(2018);
-    } else if (1610 <= top && top < 2490) {
+    } else if (2010 <= top && top < 2890) {
       setYear(2017);
-    } else if (2490 <= top && top < 2940) {
+    } else if (2890 <= top && top < 3340) {
       setYear(2016);
-    } else if (2940 <= top && top < 3390) {
+    } else if (3340 <= top && top < 3800) {
       setYear(2015);
-    } else if (3390 <= top && top < 4100) {
+    } else if (3800 <= top && top < 4500) {
       setYear(2014);
-    } else if (4100 <= top && top < 4550) {
+    } else if (4500 <= top && top < 4950) {
       setYear(2013);
-    } else if (4550 <= top && top < 5000) {
+    } else if (4950 <= top && top < 5410) {
       setYear(2012);
-    } else if (5000 <= top && top < 5420) {
+    } else if (5410 <= top && top < 5820) {
       setYear(2011);
-    } else if (5420 <= top && top < 5850) {
+    } else if (5820 <= top && top < 6280) {
       setYear(2010);
-    } else if (5850 <= top && top < 6400) {
+    } else if (6280 <= top && top < 6810) {
       setYear(2009);
-    } else if (6400 <= top && top < 6850) {
+    } else if (6810 <= top && top < 7260) {
       setYear(2008);
-    } else if (6850 <= top && top < 7400) {
+    } else if (7260 <= top && top < 7800) {
       setYear(2006);
-    } else if (7400 <= top) {
+    } else if (7800 <= top) {
       setYear(2005);
     }
   }
 
   return(
-    <Container onScroll={changeYear}>
-      <Inner>
+    <Container onScroll={changeYear}>2
+      <Inner >
         <h3 className="en">History</h3>
         <Contents>
           <Year>
@@ -109,15 +130,15 @@ const History = () => {
               <p>승람도 AR 보드게임</p>
               <p>프리드로우 VR 실감형 콘텐츠 저작툴</p>
               <p>올림픽공원 휴먼센싱 스마트트랙 조성</p>
-              {/* <p>ISMS-P 인증완료</p> */}
-              {/* isms.p 사진 */}
+              <p className="isms">ISMS-P 인증완료</p>
+              <img className="isms" src="/assets/img/company/ISMS-P.png" alt="" />
             </div>
             <div>
               <p>퍼플카드Lite 개발</p>
               <p>퍼플페이먼트 시스템 개발</p>
               <p>액션골프 센서기반 게임</p>
-              {/* <p>기업실사 조사완료!</p> */}
-              {/* 금융위원회 사진 */}
+              <p className="fsc">기업실사 조사완료!</p>
+              <img className="fsc" src="/assets/img/company/fsc.png" alt="" />
             </div>
             <div>
               <p>이더리움기반 ERC20 토큰 BANG</p>
@@ -159,7 +180,7 @@ const History = () => {
               <p>홍콩 워런트 거래 솔루션(Server, Client) 전체시스템 개발</p>
             </div>
             <div>
-              <p>홍콩 워런트 거래 솔루션 (Server, Client) 고도화<br />(ULLINK, DBpower, KDB대우증권)</p>
+              <p>홍콩 워런트 거래 솔루션(Server, Client) 고도화<br />(ULLINK, DBpower, KDB대우증권)</p>
             </div>
             <div>
               <p>중국 운전면허 시험 APP개발 (안드로이드)</p>
@@ -188,6 +209,7 @@ const History = () => {
           </Result>
         </Contents>
       </Inner>
+      <Footer />
     </Container>
   );
 }

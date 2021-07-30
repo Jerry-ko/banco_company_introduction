@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import Footer from "../../routes/Footer";
 
 const { kakao } = window;
 
-const Container = styled.div`
-  width: 100%;
-  height: calc(100vh - 152px - 101px);
-  overflow-y: scroll;
-`;
+const Container = styled.div``;
 
 const Banner = styled.div`
   width: 100%;
   height: 450px;
   background-image: url("/assets/img/company/banco_office.png");
-  // background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
@@ -172,9 +168,7 @@ const About = () => {
 
   return(
     <Container>
-      <Banner>
-        {/* <img src="/assets/img/company/banco_office.png" alt="" /> */}
-      </Banner>
+      <Banner />
       <Inner>
         <Introduc>
           <h3>회사소개</h3>
@@ -238,7 +232,9 @@ const About = () => {
               </tr>
               <tr>
                 <th>홈페이지</th>
-                <td>http://www.banco.id</td>
+                <a href="http://www.banco.id" target="_blank" rel="noreferrer">
+                  <td>http://www.banco.id</td>
+                </a>
               </tr>
               <tr>
                 <th>주요 서비스</th>
@@ -262,6 +258,7 @@ const About = () => {
           <p className="en tel">TEL | (02) 1644-5369</p>
         </Location>
       </Inner>
+      <Footer />
     </Container>
   );
 }
